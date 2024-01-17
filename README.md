@@ -1,3 +1,3 @@
-# thecr7guy2.github.io
+#### thecr7guy2.github.io
 
-# Thanks to [codewithsadee](https://github.com/codewithsadee/vcard-personal-portfolio).
+##### Thanks to [codewithsadee](https://github.com/codewithsadee/vcard-personal-portfolio).
