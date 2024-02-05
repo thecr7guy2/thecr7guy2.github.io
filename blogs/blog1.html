@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <title>Blog Template</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <meta property="og:type" content="" /> 
+    <meta property="og:url" content="" /> 
+    <meta property="og:title" content="" /> 
+    <meta property="og:image" content="" /> 
+    <meta property="og:description" content="" />
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">    
+    <link href="../assets/css/blog.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- BEGIN BLOG HEADER -->
+    <div class="section-blog-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <h3>Join thousands of subscribers and get our monthly newsletter!</h3>
+            <form action="" method="post">
+              <input type="email" value="" name="EMAIL" class="required email" placeholder="Email Address">
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END BLOG HEADER -->  
+ 
+    <!-- BEGIN BLOG POST -->     
+    <div class="section-blog-post">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="post-container">
+              <a class="back" href="../index.html">Back to all posts</a>
+
+              <h1>Week 2 at Data Engineering Zoomcamp</h1>
+              <h4>Workflow Orchestration with Mage</h4>
+
+              <span class="by">Posted by <strong>Maniraj Sai</strong> on <strong>February 5, 2024</strong></span>
+
+              <div class="featured-image">
+                <img src="../assets/images/week-2 cover.jpg" width="100%">
+              </div>
+
+              <div class="post-body">
+                <p>In the second week of our Data Engineering Zoomcamp, we dove into the essentials of workflow orchestration, utilizing Mage as our primary tool.</p>
+
+                
+                <ul>
+                  <li><p><strong>Configuring Mage and PostgreSQL:</strong> Set up our environment for workflow orchestration, including configuring Mage and establishing a PostgreSQL database connection.</p></li>
+                  <li><p><strong>Building an ETL Pipeline with Mage:</strong> Utilized Mage to construct an ETL pipeline that processes and exports New York Taxi data, showcasing the power of Mage blocks (Data Loader, Transformer, Data Exporter) in streamlining data processing tasks.</p></li>
+                </ul>
+        
+                <p>The week commenced with the configuration of Mage, guided by the comprehensive setup instructions provided by @mattpalmer. While the initial configuration facilitated a seamless startup, certain adjustments were deemed necessary to better align with specific requirements.</p>
+                <p>We streamlined our database setup by transitioning Mage's metadata storage from MySQL to PostgreSQL, the primary database used in the course. This change aimed to simplify the environment by using a single database system.</p>
+                <p>To initiate Mage, we begin by launching the database and Adminer containers, which are categorized under the db profile within the Docker Compose configuration:</p>
+                <code> docker compose --profile db up </code>
+                <p>This command activates all components reliant on PostgreSQL, effectively setting up the necessary database environment.</p>
+                <p>We similarly need to start Mage,but a small problem that you would encounter will be that if there is no .env file in the root directory the variables assigned in docker compose turn out to be blank strings to prevent this we need to substitute the correct location of the .env file</p>
+                <code> docker compose --profile mage --env-file ./docker-envs/mage.env up </code>
+                <p>We utilize the code from the previous week and modify a bit to complete this code block.</p>
+                <p>After loading the data, the transformation block is utilized for any necessary modifications. For instance, with a dataset like taxi trips, this block allows for data manipulation, the creation of new columns based on conditions, and the elimination of irrelevant data.</p>
+                
+                <p>Once you're confident in the quality and accuracy of your data, you have the option to export it to various destinations.</p>
+                <p>In Mage, workflows are scheduled using triggers, which can be set based on events, schedules, or API webhooks. This flexibility allows workflows to run automatically under specific conditions, enhancing efficiency and automation.</p>
+                
+              </div>
+
+              <div class="featured-image">
+                <img src="../assets/images/pipeline_tree.png" width="100%">
+              </div>
+
+              <div class="post-author">
+                <div class="headshot">
+                  <img src="../assets/images/c.gif" width="100%">
+                </div>
+                <p><strong>About the author:</strong> Meet Sai, an AI Graduate who is extremely... I mean extremely passionate about data. Rumor has it that Sai's love for data is only matched by his loyalty to his favorite football team—a team that, mysteriously, has never won a match when he's watching. </p>
+                
+              </div>
+
+            </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
