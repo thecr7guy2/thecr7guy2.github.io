@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <title>Blog Template</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <meta property="og:type" content="" /> 
+    <meta property="og:url" content="" /> 
+    <meta property="og:title" content="" /> 
+    <meta property="og:image" content="" /> 
+    <meta property="og:description" content="" />
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">    
+    <link href="../assets/css/blog.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- BEGIN BLOG HEADER -->
+    <div class="section-blog-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <h3>Join thousands of subscribers and get our monthly newsletter!</h3>
+            <form action="" method="post">
+              <input type="email" value="" name="EMAIL" class="required email" placeholder="Email Address">
+              <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END BLOG HEADER -->  
+ 
+    <!-- BEGIN BLOG POST -->     
+    <div class="section-blog-post">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="post-container">
+              <a class="back" href="../index.html">Back to all posts</a>
+
+              <h1>Week 3 at Data Engineering Zoomcamp</h1>
+              <h4>Data warehouses and Google BigQuery</h4>
+
+              <span class="by">Posted by <strong>Maniraj Sai</strong> on <strong>February 12, 2024</strong></span>
+
+              <div class="featured-image">
+                <img src="../assets/images/week-3 cover.jpg" width="100%">
+              </div>
+
+              <div class="post-body">
+                <p>In the third week of our Data Engineering Zoomcamp, we took an in-depth look at Data warehouses and Google BigQuery, highlighting its role as a serverless data warehouse optimized for large-scale data analytics. It covers key concepts such as OLTP vs OLAP, data warehousing, partitioning, clustering, and best practices for cost reduction and performance improvement. Additionally, it delves into BigQuery's unique architecture, including its storage, network, and query execution engines, alongside an introduction to its machine learning capabilities for data analysts and managers.
+                
+
+                <h4><b>OLTP vs OLAP: Understanding the differences and use cases</b></h4>   
+                <p>Online Transaction Processing (OLTP) - Designed to manage transaction oriented applications. Thy are used for real time scenarios where there is a need to manage and process high volumes of data. They are more focused on operational effeciency and the transactiions involve simple queries (INSERT, UPDATE, DELETE). Main UseCases are in banking, ecommerce and CRM where the keyword "real-time" means a lot.</p>
+
+                <p>Online Analytical Processing (OLAP) - OLAP systems are mainly designed to process huge columes of data for the purpose of analyzing and finding insights from them. They are used mainly for strategic planning and decision making. Unlike OLTP, these systems allow for more complex queries through which the analytical insights are discovered.</p>
+
+
+                <h4><b>What is a Data Warehouse ?</b></h4>  
+
+                <p>Data Warehouse is a OLAP solution. It stores structured data from multiple sources as  optimized for fast retrieval. It is designed to support Business Intelligence, Reporting and Analytics. The main purpose of data warehouses is to aggregate data from multiple sources into a single coherent database structured source and then used for query and analysis puroses.
+                </p>
+
+                <h4><b>How a Data warehouse is different from Data lake</b></h4>  
+
+                <p>Datalake unlike a Datawarehouse can store different files. It is a repository that is designed mainly to store files in there native format. To insert data, there is no predefined schema that is required. They are mainly used in scnarios where you the data and the questions being asked in the data are evolving. 
+                </p>
+
+                <ul>
+                    <li><p><strong>Data Warehouses:</strong> Amazon Redshift, Google BigQuery, Snowflake etc.
+                    </p></li>
+                    <li><p><strong>Data Lakes:</strong> AWS S3, GCS, Azure Blob Storage etc.</p></li>
+                </ul>
+                
+                <h4><b>Google Bigquery</b></h4>  
+
+                <p>Since in this course, we are dealing with the Google cloud eco system - we use Google Bigquery for this course. It is a serverless data warehouse. It is easily scalable and highly available. BigQuery separates compute from storage, which maximizes flexibility and ensures that the compute engine's performance is primarily influenced by query complexity rather than the size of the data stored.</p>
+                
+                <h4><b>Cost</b></h4>  
+
+                <ul>
+                    <li><p>On demand pricing : 1 TB of data processed - 5$
+                    </p></li>
+                    <li><p>Flat rate pricing : Based on number of pre requested slots. </p></li>
+                </ul>
+
+                <h4><b>Query Caching</b></h4>  
+
+                <p>BigQuery enhances query performance and optimizes costs by caching the results of queries. This feature can lead to unexpected results if not properly understood, especially when recent data changes are expected to reflect immediately in query outputs. To ensure your queries always return the most current data</p>
+
+                <h4><b>Partitioning in BigQuery</b></h4> 
+
+                <p>Partitioning in BigQuery is a technique used to divide a table into smaller segments, called partitions, based on a specific column, such as a date or timestamp. This approach is highly effective for managing large datasets by reducing the amount of data scanned during queries, which in turn optimizes query performance and cost. Partitioning is particularly beneficial for time-series data, where queries often target specific time ranges. By partitioning a table on a date or timestamp column, BigQuery can limit the data it needs to scan to just the partitions that fall within the query's specified time range. This not only speeds up query execution but also significantly lowers costs by avoiding full table scans. Partitioning is most effective when you have a clear partitioning column that aligns with your query patterns, ensuring that your queries can take full advantage of the partitioned structure to optimize performance.</p>
+
+                <h4><b> Clustering in BigQuery</b></h4> 
+
+                <p>Clustering in BigQuery complements partitioning by further organizing data within each partition into clusters based on the values of one or more columns. This allows BigQuery to efficiently filter and aggregate data by quickly homing in on the relevant clusters without scanning the entire table or partition. Clustering is especially useful when dealing with large datasets where queries frequently filter or aggregate on specific column values. It enhances query performance by reducing the amount of data processed and can lead to significant cost savings. Unlike partitioning, which is based on a single column, clustering can be applied to up to four columns, offering more flexibility in organizing data. Clustering is ideal when your queries involve multiple columns for filtering or sorting, as it provides a more granular level of data organization compared to partitioning alone.
+                </p>
+
+                <h4><b> When to use partioning over clustering ?</b></h4> 
+
+                <p>Choosing between partitioning and clustering in BigQuery depends on your specific dataset and query patterns. Partitioning is the preferred approach when your data has a natural partitioning key, such as a date, and your queries frequently filter by this key. It's particularly effective for datasets with a large volume of data added daily or for time-series analyses. On the other hand, clustering should be considered when your queries commonly filter or sort by multiple columns, but do not have a clear partitioning column, or when you want to enhance the performance of queries within already partitioned tables. For the best performance and cost efficiency, combining partitioning with clustering often yields the best results, allowing you to leverage the benefits of both techniques by partitioning on a primary key (like a date) and clustering within those partitions on additional columns relevant to your queries.</p>
+
+
+                <h4><b>Best practices to reduce costs</b></h4> 
+                <ul>
+                    <li><p>Avoid SELECT *</p></li>
+                    <li><p>Price your queries (right side top corner as shown in the video.)</p></li>
+                    <li><p>Use INSERTs with caution</p></li>
+                    <li><p>Materialize your query results in different stages</p></li>
+                </ul>
+
+                <h4><b>Best practices to improve query performance</b></h4> 
+                <ul>
+                    <li><p>Always filter on partitioned columns (WHERE sale_date BETWEEN '2021-01-01' AND '2021-01-31';)</p></li>
+                    <li><p>Denormalize data (combine multiple tables/ add redundant data to improve the query performance)</p></li>
+                    <li><p>Avoid external sources if a very high query performance is needed</p></li>
+                    <li><p>Reduce data before you use a join</p></li>
+                </ul>
+
+                
+                <div class="featured-image">
+                    <img src="../assets/images/week-3 cover.jpg" width="100%">
+                </div>
+
+
+              <div class="post-author">
+                <div class="headshot">
+                  <img src="../assets/images/c.gif" width="100%">
+                </div>
+                <p><strong>About the author:</strong> Meet Sai, an AI Graduate who is extremely... I mean extremely passionate about data. Rumor has it that Sai's love for data is only matched by his loyalty to his favorite football team—a team that, mysteriously, has never won a match when he's watching. </p>
+                
+              </div>
+
+            </div>
+          </div>        
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
