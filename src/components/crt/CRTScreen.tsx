@@ -104,7 +104,7 @@ export function CRTScreen({
 
   const bezelStyle: React.CSSProperties = noBezel ? {} : {
     position:     "relative",
-    padding:      "22px 26px 32px",
+    padding:      "clamp(10px, 1.8vw, 16px) clamp(12px, 2.2vw, 20px) clamp(14px, 2.6vw, 22px)",
     background:   "linear-gradient(150deg, #1c1c1c 0%, #141414 50%, #0f0f0f 100%)",
     borderRadius: "10px",
     boxShadow: [
@@ -120,6 +120,10 @@ export function CRTScreen({
 
   const screenContainerStyle: React.CSSProperties = {
     position:     "relative",
+    display:      "flex",
+    flexDirection:"column",
+    flex:         1,
+    minHeight:    "220px",
     background:   "#040404",
     borderRadius: noBezel ? "4px" : "3px",
     overflow:     "hidden",
@@ -139,7 +143,13 @@ export function CRTScreen({
   return (
     <div
       className={className}
-      style={{ ...SIZE[size], ...(noBezel ? {} : bezelStyle) }}
+      style={{
+        ...SIZE[size],
+        ...(noBezel ? {} : bezelStyle),
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+      }}
     >
       {/* Bezel label — top left, dim embossed */}
       {label && !noBezel && (
@@ -189,7 +199,7 @@ export function CRTScreen({
         }} />
 
         {/* Content */}
-        <div style={{ position: "relative", zIndex: 5 }}>
+        <div style={{ position: "relative", zIndex: 5, flex: 1, minHeight: 0 }}>
           {children}
         </div>
       </div>
