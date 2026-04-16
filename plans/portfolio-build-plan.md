@@ -12,7 +12,7 @@ The site doesn't look like a portfolio. It looks like you've gained access to so
 - Film grain, worn textures, imperfections — nothing hyper-clean
 - "SAI" appears as diegetic detail, not as a logo
 
-**Core tech:** Next.js 15 (App Router), Tailwind CSS v4, Framer Motion, Canvas/WebGL for visualizations, Vercel deployment.
+**Core tech:** Next.js 16 (App Router), Tailwind CSS v4, Framer Motion, Canvas/WebGL for visualizations, Vercel deployment.
 
 ---
 
@@ -20,7 +20,7 @@ The site doesn't look like a portfolio. It looks like you've gained access to so
 
 **Goal:** Next.js project running on Vercel with the foundational structure.
 
-- [ ] Initialize Next.js 15 with App Router, TypeScript, Tailwind v4
+- [ ] Initialize Next.js 16 with App Router, TypeScript, Tailwind v4
 - [ ] Set up project structure:
   ```
   src/
@@ -116,6 +116,19 @@ No traditional navbar. Instead:
 
 ### 2.3 Scroll Behavior
 As you scroll down from the hero, you leave the workstation and enter the content sections. Each section is framed as a different "screen" or "terminal window." Smooth transitions between them. Maybe a subtle parallax on the CRT bezels.
+
+### 2.4 Composition + Density Pass (required before Phase 3)
+Use the first implementation as a layout prototype, then run a dedicated pass to remove dead space and improve hierarchy:
+- Lock hero monitor zone height to a bounded range (avoid full-height empty columns on large screens).
+- Ensure each monitor has a clear information stack from top to bottom (header, core block, status/footer).
+- Keep a single decorative media layer (`cool-image.jpeg`) behind the workstation with gradient masking.
+- Make the "scroll to explore" affordance a designed component (animated track + chevrons), not plain text.
+- Apply this pass for desktop and mobile breakpoints before adding more content sections.
+
+### 2.5 Content Source Guardrail
+Avoid duplicate content drift:
+- Experience/projects text in monitors should eventually be read from `src/content/resume.md`.
+- Resume PDF remains downloadable, but monitor text should be generated from one source of truth.
 
 ---
 
