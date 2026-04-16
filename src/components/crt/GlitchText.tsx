@@ -6,6 +6,7 @@ interface GlitchTextProps {
   children: React.ReactNode
   intensity?: "low" | "medium" | "high"
   className?: string
+  style?: React.CSSProperties
   as?: "h1" | "h2" | "h3" | "p" | "span" | "div"
 }
 
@@ -19,6 +20,7 @@ export function GlitchText({
   children,
   intensity = "low",
   className = "",
+  style,
   as = "span",
 }: GlitchTextProps) {
   const [glitching, setGlitching] = useState(false)
@@ -57,11 +59,10 @@ export function GlitchText({
     <Tag
       className={`${glitching ? "glitching" : ""} ${className}`}
       data-text={textContent}
-      style={
-        glitching
-          ? ({ "--glitch-dur": `${cfg.duration}ms` } as React.CSSProperties)
-          : undefined
-      }
+      style={{
+        ...style,
+        ...(glitching ? { "--glitch-dur": `${cfg.duration}ms` } as React.CSSProperties : {}),
+      }}
     >
       {children}
     </Tag>
