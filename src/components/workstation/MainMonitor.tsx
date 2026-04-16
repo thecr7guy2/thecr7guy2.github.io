@@ -11,8 +11,8 @@ const LINKS = [
 
 const METRICS = [
   { label: "exp", value: "3+ years" },
-  { label: "apps", value: "5 prod AI apps" },
-  { label: "training", value: "18B tokens" },
+  { label: "role", value: "AI Engineer" },
+  { label: "focus", value: "LLM's" },
 ]
 
 const FOCUS = [
@@ -64,7 +64,10 @@ export function MainMonitor() {
             @ Schiphol, NL // currently shipping on-prem AI
           </p>
 
-          <div className="hidden sm:grid grid-cols-3 gap-2">
+          <div
+            className="hidden sm:inline-grid gap-2"
+            style={{ gridTemplateColumns: `repeat(${METRICS.length}, minmax(0, 1fr))` }}
+          >
             {METRICS.map((metric) => (
               <div
                 key={metric.label}

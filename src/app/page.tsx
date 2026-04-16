@@ -126,7 +126,7 @@ export default async function Home() {
           className="monitor-stage relative z-10 shrink-0 flex flex-col sm:flex-row items-stretch px-2.5 sm:px-4 pb-3 pt-2.5 sm:pt-3 gap-4 sm:gap-3 min-h-0 max-w-[1880px] w-full mx-auto"
         >
 
-          {/* Left — terminal activity log (hidden on small mobile) */}
+          {/* Left — portrait terminal monitor */}
           <div
             className="hidden md:flex flex-col w-full min-w-0 order-2 sm:order-1 sm:basis-[clamp(240px,22vw,380px)] sm:shrink-0 sm:grow-0"
           >
@@ -138,7 +138,7 @@ export default async function Home() {
             <MainMonitor />
           </div>
 
-          {/* Right — neural net (hidden on small screens) */}
+          {/* Right — portrait neural monitor */}
           <div
             className="hidden md:flex flex-col w-full min-w-0 order-3 sm:basis-[clamp(240px,22vw,380px)] sm:shrink-0 sm:grow-0"
           >
