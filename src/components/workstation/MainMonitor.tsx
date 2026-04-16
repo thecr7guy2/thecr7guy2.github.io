@@ -10,7 +10,7 @@ const LINKS = [
 ]
 
 const METRICS = [
-  { label: "exp", value: "3+ years" },
+  { label: "exp", value: "4+ years" },
   { label: "role", value: "AI Engineer" },
   { label: "focus", value: "LLM's" },
 ]
