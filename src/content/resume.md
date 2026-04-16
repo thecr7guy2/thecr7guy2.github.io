@@ -55,6 +55,33 @@ April 2024 – July 2024
 
 ---
 
+### AX-Office.ai  
+**Tech:** Python, FastAPI, Docker, PostgreSQL  
+**Year:** 2025  
+
+- Architected and shipped a fully on-premise AI platform for a security company — 5 production apps including a private LLM assistant, Agentic RAG, ASR transcription, document OCR, and an AI coding agent, eliminating all external LLM API dependencies on sensitive data.  
+- Built an internal model evaluation framework benchmarking 10+ open-weight models across reasoning, instruction following, code quality, and summarization to drive continuous data-driven model selection.  
+
+---
+
+### Ajax Shot Technique Analyzer  
+**Tech:** Python, OpenCV, MediaPipe, PyTorch, Three.js  
+**Year:** 2024  
+
+- Built a computer vision pipeline for Ajax that detects and scores footballer shooting technique from match footage, extracting body keypoints and computing biomechanical metrics across the kinematic chain.  
+- Rendered a 3D skeleton overlay on detected shots using Three.js, giving coaches an interactive frame-by-frame breakdown of technique vs. ideal form.  
+
+---
+
+### ESRGAN with Uncertainty Estimation  
+**Tech:** PyTorch, GAN, Bayesian Deep Learning  
+**Year:** 2023  
+
+- Master's thesis: incorporated uncertainty estimation into a GAN-based super-resolution model (ESRGAN), enabling the network to output calibrated confidence maps alongside upscaled images.  
+- Applied to medical imaging — allowing clinicians to see not just the reconstructed image but how confident the model is in each region, improving diagnostic trustworthiness.  
+
+---
+
 ## Education
 
 ### University of Groningen  
