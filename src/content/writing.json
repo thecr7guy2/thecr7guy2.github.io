@@ -1,0 +1,37 @@
+[
+  {
+    "title": "I Built a Bot That Reads SEC Filings and Lets Claude Opus Manage My Portfolio",
+    "excerpt": "An autonomous trading system that scrapes insider disclosures, scores conviction, and places real trades — zero human intervention.",
+    "date": "2026-03",
+    "tags": ["AGENTS", "TRADING", "CLAUDE"],
+    "url": "https://bramble-hickory-105.notion.site/I-Built-a-Bot-That-Reads-SEC-Filings-and-Lets-Claude-Opus-Manage-My-Portfolio-323a490c257c81739909cb792452185a"
+  },
+  {
+    "title": "AX-Office.ai: How We Built Local AI Into the Heart of Our Office",
+    "excerpt": "Five production AI apps running fully on-prem at a security company. No external APIs, no data exposure.",
+    "date": "2025-10",
+    "tags": ["ON-PREM", "PRODUCTION", "LLM"],
+    "url": "https://bramble-hickory-105.notion.site/AX-Office-ai-How-We-Built-Local-AI-Into-the-Heart-of-Our-Office-323a490c257c81beb4e4e022ded8bfcc"
+  },
+  {
+    "title": "How I Trained an LLM from Scratch and Finetuned It",
+    "excerpt": "Pretraining GPT-2 Small on 18B tokens across 8×A100s, then instruction-tuning it to beat the original on TruthfulQA and MMLU.",
+    "date": "2025-06",
+    "tags": ["TRAINING", "PyTorch", "LLM"],
+    "url": "https://bramble-hickory-105.notion.site/How-I-trained-an-LLM-from-scratch-and-finetuned-it-271a490c257c80718ffcf42b6d90e962"
+  },
+  {
+    "title": "Why More Companies Should Adopt Local LLMs",
+    "excerpt": "The case for on-prem inference — privacy, cost, control — and how we actually shipped it at aXite.",
+    "date": "2025-03",
+    "tags": ["LOCAL LLM", "ENTERPRISE", "PRIVACY"],
+    "url": "https://bramble-hickory-105.notion.site/Why-more-companies-should-adopt-Local-LLMs-and-how-we-at-aXite-are-doing-it-2d4a490c257c80a09f53d82afea21440"
+  },
+  {
+    "title": "Building a Shot Technique Analyzer for Ajax",
+    "excerpt": "Computer vision meets football — detecting and scoring shooting technique from match footage.",
+    "date": "2024-11",
+    "tags": ["COMPUTER VISION", "FOOTBALL", "ML"],
+    "url": "https://bramble-hickory-105.notion.site/Building-a-Shot-Technique-Analyzer-for-Ajax-2f4a490c257c80b490e7d88e3a1facb9"
+  }
+]

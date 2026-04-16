@@ -1,0 +1,20 @@
+---
+title: "Insider Signals For Autonomous Trading Agents"
+date: "2026-01-28"
+excerpt: "Scoring insider-conviction signals and feeding them into an autonomous agent loop."
+tags: "agents, trading, automation"
+---
+
+This system ingests filings, scores insider conviction, and proposes allocations with transparent rationale.
+
+## Pipeline
+
+- Scrape filings and normalize entities.
+- Score each signal with weighted factors.
+- Pass candidates into an LLM portfolio manager.
+- Execute on schedule and log decisions.
+
+## Key principle
+
+If the signal is not explainable, it should not be tradable.
+

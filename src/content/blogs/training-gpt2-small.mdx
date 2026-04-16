@@ -1,0 +1,19 @@
+---
+title: "Training GPT-2 Small From Zero"
+date: "2026-03-11"
+excerpt: "How I pre-trained GPT-2 small on 18B tokens and what actually mattered in practice."
+tags: "llm-training, gpt2, pytorch"
+---
+
+I trained GPT-2 small from scratch to understand the full loop: data, tokenizer, training stability, and evaluation.
+
+## What mattered most
+
+- Data quality and deduping mattered more than architectural tweaks.
+- A stable input pipeline prevented GPU starvation and noisy loss.
+- Frequent lightweight eval checkpoints helped avoid wasted long runs.
+
+## Why this project matters
+
+This project forced me to connect model quality with real engineering constraints: I/O, memory, and experiment discipline.
+
