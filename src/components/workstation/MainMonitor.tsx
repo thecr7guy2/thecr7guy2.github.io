@@ -24,16 +24,16 @@ const FOCUS = [
 export function MainMonitor() {
   return (
     <CRTScreen variant="green" label="TRINITRON-X4 // PRIMARY" size="full" className="h-full">
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none hidden sm:block">
         <LossCurve opacity={0.18} color="#00ff41" className="w-full h-full" />
       </div>
 
-      <div className="relative z-10 flex flex-col justify-between h-full p-3 sm:p-5 min-h-[230px] sm:min-h-[320px]">
+      <div className="relative z-10 flex flex-col justify-between h-full p-3 sm:p-5 min-h-[210px] sm:min-h-[320px]">
         <div className="flex items-center justify-between gap-2">
-          <span className="text-gray-text text-[9px] sm:text-[10px] tracking-[0.14em] sm:tracking-[0.16em] uppercase">
+          <span className="text-gray-text text-[8px] sm:text-[10px] tracking-[0.12em] sm:tracking-[0.16em] uppercase">
             SYSTEM // MANIRAJ-SAI-v3.0
           </span>
-          <span className="text-green-dim text-[9px] sm:text-[10px] tracking-[0.12em] sm:tracking-widest">
+          <span className="text-green-dim text-[8px] sm:text-[10px] tracking-[0.10em] sm:tracking-widest">
             ● ONLINE
           </span>
         </div>
@@ -47,7 +47,7 @@ export function MainMonitor() {
             as="h1"
             intensity="low"
             className="text-green-neon chromatic-heavy text-glow-green font-bold leading-none"
-            style={{ fontSize: "clamp(2.4rem, 5vw, 3.9rem)" } as React.CSSProperties}
+            style={{ fontSize: "clamp(2rem, 7.2vw, 3.9rem)" } as React.CSSProperties}
           >
             SAI
           </GlitchText>
@@ -56,11 +56,11 @@ export function MainMonitor() {
             AI Engineer building production LLM systems, training workflows, and data products
             with a football-heavy creative edge.
           </p>
-          <p className="sm:hidden text-white-dim text-[13px] tracking-wide leading-relaxed max-w-[30ch]">
+          <p className="sm:hidden text-white-dim text-[12px] tracking-[0.02em] leading-relaxed max-w-[30ch]">
             AI Engineer building production LLM systems.
           </p>
 
-          <p className="text-green-dim text-[10px] sm:text-[11px] tracking-wider">
+          <p className="text-green-dim text-[9px] sm:text-[11px] tracking-[0.08em] sm:tracking-wider">
             @ Schiphol, NL // currently shipping on-prem AI
           </p>
 
@@ -86,14 +86,14 @@ export function MainMonitor() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-2">
+        <div className="flex flex-wrap gap-x-2.5 sm:gap-x-4 gap-y-2">
           {LINKS.map((l) => (
             <a
               key={l.label}
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-neon text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.15em] uppercase hover:text-white-dim transition-colors duration-150"
+              className="text-green-neon text-[9px] sm:text-[11px] tracking-[0.08em] sm:tracking-[0.15em] uppercase hover:text-white-dim transition-colors duration-150"
               style={{ textShadow: "0 0 6px var(--green-neon)" }}
             >
               [{l.label}]

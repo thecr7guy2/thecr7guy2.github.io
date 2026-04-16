@@ -468,6 +468,10 @@ body::before {
   line-height: 1.75;
 }
 
+.blog-mdx * {
+  overflow-wrap: anywhere;
+}
+
 .blog-mdx h2,
 .blog-mdx h3 {
   color: var(--cyan-subtle);
@@ -482,6 +486,25 @@ body::before {
   margin: 0.65rem 0;
 }
 
+.blog-mdx a {
+  color: var(--cyan-subtle);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.blog-mdx code {
+  color: var(--amber-warm);
+}
+
+.blog-mdx pre {
+  margin: 0.9rem 0;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid rgba(0,212,255,0.25);
+  border-radius: 6px;
+  overflow-x: auto;
+  background: rgba(0, 10, 14, 0.55);
+}
+
 .blog-mdx ul {
   margin: 0.75rem 0 0.9rem 1.1rem;
   color: var(--gray-text);
@@ -489,4 +512,11 @@ body::before {
 
 .blog-mdx li {
   margin: 0.3rem 0;
+}
+
+.blog-mdx img,
+.blog-mdx video,
+.blog-mdx iframe {
+  max-width: 100%;
+  height: auto;
 }

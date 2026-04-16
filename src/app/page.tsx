@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { MainMonitor, NeuralMonitor, TerminalMonitor } from "@/components/workstation"
-import { GlitchText } from "@/components/crt/GlitchText"
 import { getResumeData } from "@/lib/resume"
 
 const NAV = [
@@ -95,13 +94,16 @@ export default async function Home() {
 
         {/* ── Top nav bar ── */}
         <nav
-          className="relative z-10 shrink-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 px-3 sm:px-6 pt-3 sm:pt-4 pb-2"
-          style={{ borderBottom: "1px solid var(--gray-muted)" }}
+          className="relative z-10 shrink-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 px-3 sm:px-6 pb-2"
+          style={{
+            borderBottom: "1px solid var(--gray-muted)",
+            paddingTop: "max(0.75rem, env(safe-area-inset-top))",
+          }}
         >
           <span className="text-gray-text text-[9px] sm:text-[10px] tracking-[0.16em] sm:tracking-[0.22em] uppercase select-none">
             SAI — WORKSTATION
           </span>
-          <ul className="w-full sm:w-auto flex flex-wrap sm:flex-nowrap gap-x-3 gap-y-1 sm:gap-5 list-none m-0 p-0">
+          <ul className="w-full sm:w-auto flex flex-nowrap overflow-x-auto no-scrollbar gap-3 sm:gap-5 list-none m-0 p-0">
             {NAV.map(n => (
               <li key={n.label}>
                 <a
@@ -206,7 +208,10 @@ export default async function Home() {
                   <h3 className="text-[12px] sm:text-[13px] text-white-dim tracking-wide uppercase leading-snug">
                     {project.name}
                   </h3>
-                  <span className="shrink-0 flex items-center gap-1 text-[8px] tracking-[0.18em] uppercase text-pink-dim mt-0.5">
+                  <span
+                    className="shrink-0 flex items-center gap-1 text-[8px] tracking-[0.18em] uppercase text-pink-neon sm:text-pink-dim mt-0.5"
+                    style={{ textShadow: "0 0 7px rgba(255,45,120,0.7)" }}
+                  >
                     <span
                       className="inline-block w-1.5 h-1.5 rounded-full"
                       style={{ background: "var(--pink-neon)" }}
@@ -215,13 +220,26 @@ export default async function Home() {
                   </span>
                 </div>
 
-                <p className="text-pink-dim text-[10px] tracking-wider mb-3">{project.deps}</p>
+                <p
+                  className="text-pink-neon sm:text-pink-dim text-[10px] tracking-wider mb-3"
+                  style={{ textShadow: "0 0 6px rgba(255,45,120,0.45)" }}
+                >
+                  {project.deps}
+                </p>
 
                 {/* Bullets */}
                 <ul className="flex flex-col gap-2">
                   {project.bullets.map((b, i) => (
-                    <li key={i} className="flex gap-2 text-[11px] text-gray-text leading-relaxed">
-                      <span className="text-pink-dim shrink-0 mt-0.5">›</span>
+                    <li
+                      key={i}
+                      className={`gap-2 text-[11px] text-gray-text leading-relaxed ${i === 0 ? "flex" : "hidden sm:flex"}`}
+                    >
+                      <span
+                        className="text-pink-neon sm:text-pink-dim shrink-0 mt-0.5"
+                        style={{ textShadow: "0 0 5px rgba(255,45,120,0.55)" }}
+                      >
+                        ›
+                      </span>
                       <span>{b}</span>
                     </li>
                   ))}
@@ -234,8 +252,8 @@ export default async function Home() {
                       href={project.writeupUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-pink-dim text-[10px] tracking-[0.18em] uppercase hover:text-pink-neon transition-colors"
-                      style={{ textDecoration: "none" }}
+                      className="text-pink-neon sm:text-pink-dim text-[10px] tracking-[0.18em] uppercase hover:text-pink-neon transition-colors"
+                      style={{ textDecoration: "none", textShadow: "0 0 6px rgba(255,45,120,0.45)" }}
                     >
                       › [writeup ↗]
                     </a>
@@ -248,139 +266,189 @@ export default async function Home() {
       </section>
 
       {/* ─── HOBBIES ──────────────────────────────────────────── */}
-      <section id="hobbies" style={{ background: "var(--black-deep)" }}>
-
-        {/* Label */}
-        <div className="px-4 sm:px-8 pt-14 sm:pt-18 pb-8">
-          <p className="text-gray-text text-[10px] tracking-[0.3em] uppercase">
+      <section
+        id="hobbies"
+        style={{ background: "var(--black-deep)", borderTop: "1px solid var(--gray-muted)" }}
+        className="px-4 sm:px-8 py-14 sm:py-18"
+      >
+        <div className="mx-auto max-w-[1320px]">
+          <p className="text-gray-text text-[10px] tracking-[0.3em] uppercase mb-2">
             OFF_DUTY // ACTIVE
           </p>
-        </div>
+          <h2 className="text-cyan-subtle text-xl sm:text-2xl tracking-[0.12em] uppercase mb-7 text-glow-cyan">
+            Hobbies
+          </h2>
 
-        {/* ── Band 1: Football ── */}
-        <div
-          className="relative overflow-hidden px-4 sm:px-16 py-12 sm:py-16"
-          style={{ borderTop: "1px solid var(--gray-muted)" }}
-        >
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              width: "clamp(400px, 55vw, 800px)",
-              height: "clamp(400px, 55vw, 800px)",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(0,255,65,0.13) 0%, transparent 68%)",
-              filter: "blur(48px)",
-              left: "-15%",
-              top: "-60%",
-              animation: "blob-drift-1 18s ease-in-out infinite",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <GlitchText
-              as="h3"
-              intensity="medium"
-              className="text-green-neon uppercase leading-none mb-4"
-              style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", letterSpacing: "-0.01em" }}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+            <article
+              className="hidden lg:block lg:col-span-7 relative rounded-xl border p-5 sm:p-6 overflow-hidden"
+              style={{
+                borderColor: "rgba(0,212,255,0.28)",
+                background: "linear-gradient(160deg, rgba(7,12,16,0.88) 0%, rgba(6,8,10,0.96) 100%)",
+              }}
             >
-              Football
-            </GlitchText>
-            <p className="text-gray-text leading-relaxed max-w-[460px]" style={{ fontSize: "clamp(13px, 1.4vw, 15px)" }}>
-              Tactical obsessive. Real Madrid fan. Built a whole biomechanics pipeline just to understand
-              why some shots are inevitable. CR7 &gt; everyone else, always.
-            </p>
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  pointerEvents: "none",
+                  background: "radial-gradient(ellipse 60% 80% at 20% 35%, rgba(0,212,255,0.18), transparent 72%)",
+                }}
+              />
+
+              <div className="relative z-10">
+                <p className="text-cyan-dim text-[10px] tracking-[0.18em] uppercase mb-3">
+                  RECOVERY CYCLE // BASE MODE
+                </p>
+                <h3 className="text-white-dim text-[22px] sm:text-[28px] tracking-[0.06em] uppercase leading-tight mb-4">
+                  Focus Engine Outside Work
+                </h3>
+                <p className="text-gray-text text-[13px] sm:text-[14px] leading-relaxed max-w-[50ch]">
+                  Football sharpens pattern reading, tinkering sharpens execution, and lofi/anime
+                  resets the system so deep work stays consistent.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-5">
+                  <div
+                    className="rounded-md border px-3 py-2"
+                    style={{ borderColor: "rgba(0,255,65,0.28)", background: "rgba(0,255,65,0.04)" }}
+                  >
+                    <p className="text-[9px] tracking-[0.18em] uppercase text-green-dim mb-1">PATTERN</p>
+                    <p className="text-[14px] text-green-neon">Football</p>
+                  </div>
+                  <div
+                    className="rounded-md border px-3 py-2"
+                    style={{ borderColor: "rgba(0,212,255,0.28)", background: "rgba(0,212,255,0.04)" }}
+                  >
+                    <p className="text-[9px] tracking-[0.18em] uppercase text-cyan-dim mb-1">BUILD</p>
+                    <p className="text-[14px] text-cyan-subtle">Tinkering</p>
+                  </div>
+                  <div
+                    className="rounded-md border px-3 py-2"
+                    style={{ borderColor: "rgba(255,179,71,0.28)", background: "rgba(255,179,71,0.04)" }}
+                  >
+                    <p className="text-[9px] tracking-[0.18em] uppercase text-amber-dim mb-1">RECOVER</p>
+                    <p className="text-[14px] text-amber-warm">Lofi + Anime</p>
+                  </div>
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {["Match Vision", "Notebook Experiments", "Late-Night Focus", "Repeat Loop"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-1 rounded-full border text-[10px] tracking-[0.14em] uppercase text-gray-text"
+                      style={{ borderColor: "rgba(0,212,255,0.2)", background: "rgba(0,0,0,0.28)" }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+
+            <div className="lg:col-span-5 grid grid-cols-1 gap-4">
+              <article
+                className="rounded-xl border p-5"
+                style={{
+                  borderColor: "rgba(0,255,65,0.28)",
+                  background: "linear-gradient(155deg, rgba(8,14,9,0.85) 0%, rgba(7,10,7,0.95) 100%)",
+                }}
+              >
+                <h4 className="text-green-neon text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-green mb-2">
+                  Football
+                </h4>
+                <p className="text-gray-text text-[13px] leading-relaxed">
+                  Shot mechanics, space timing, and pattern intuition.
+                </p>
+              </article>
+
+              <article
+                className="rounded-xl border p-5"
+                style={{
+                  borderColor: "rgba(0,212,255,0.28)",
+                  background: "linear-gradient(155deg, rgba(5,13,16,0.85) 0%, rgba(6,8,10,0.95) 100%)",
+                }}
+              >
+                <h4 className="text-cyan-subtle text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-cyan mb-2">
+                  Tinkering
+                </h4>
+                <p className="text-gray-text text-[13px] leading-relaxed">
+                  Small model runs, wild tests, and fast break-fix loops.
+                </p>
+              </article>
+
+              <article
+                className="rounded-xl border p-5"
+                style={{
+                  borderColor: "rgba(255,179,71,0.28)",
+                  background: "linear-gradient(155deg, rgba(16,11,6,0.84) 0%, rgba(10,8,6,0.95) 100%)",
+                }}
+              >
+                <h4 className="text-amber-warm text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-amber mb-2">
+                  Lofi + Anime
+                </h4>
+                <p className="text-gray-text text-[13px] leading-relaxed">
+                  Quiet ambience, glowing rooms, stable attention.
+                </p>
+              </article>
+            </div>
           </div>
         </div>
-
-        {/* ── Band 2: ML Tinkering ── */}
-        <div
-          className="relative overflow-hidden px-4 sm:px-16 py-12 sm:py-16 flex flex-col items-center text-center"
-          style={{ borderTop: "1px solid var(--gray-muted)" }}
-        >
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              width: "clamp(400px, 60vw, 900px)",
-              height: "clamp(400px, 60vw, 900px)",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(0,212,255,0.11) 0%, transparent 68%)",
-              filter: "blur(56px)",
-              left: "50%",
-              top: "50%",
-              transform: "translate(-50%, -50%)",
-              animation: "blob-drift-2 22s ease-in-out infinite",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <GlitchText
-              as="h3"
-              intensity="low"
-              className="text-cyan-subtle uppercase leading-none mb-4"
-              style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", letterSpacing: "-0.01em" }}
-            >
-              Tinkering
-            </GlitchText>
-            <p className="text-gray-text leading-relaxed max-w-[460px] mx-auto" style={{ fontSize: "clamp(13px, 1.4vw, 15px)" }}>
-              If it&apos;s not in production, it&apos;s in a notebook.
-              Training small models, breaking things on purpose, reading papers at 2am.
-            </p>
-          </div>
-        </div>
-
-        {/* ── Band 3: Lofi + Anime ── */}
-        <div
-          className="relative overflow-hidden px-4 sm:px-16 py-12 sm:py-16 flex flex-col items-end text-right"
-          style={{ borderTop: "1px solid var(--gray-muted)", borderBottom: "1px solid var(--gray-muted)" }}
-        >
-          <div
-            aria-hidden="true"
-            style={{
-              position: "absolute",
-              width: "clamp(400px, 55vw, 800px)",
-              height: "clamp(400px, 55vw, 800px)",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(255,179,71,0.10) 0%, transparent 68%)",
-              filter: "blur(48px)",
-              right: "-15%",
-              bottom: "-60%",
-              animation: "blob-drift-3 20s ease-in-out infinite",
-              pointerEvents: "none",
-            }}
-          />
-          <div style={{ position: "relative", zIndex: 1 }}>
-            <h3
-              className="text-amber-warm uppercase leading-none mb-4"
-              style={{ fontSize: "clamp(2.8rem, 7vw, 6rem)", letterSpacing: "-0.01em" }}
-            >
-              Lofi + Anime
-            </h3>
-            <p className="text-gray-text leading-relaxed max-w-[460px]" style={{ fontSize: "clamp(13px, 1.4vw, 15px)" }}>
-              Ghost in the Shell. Akira. Cowboy Bebop.
-              The aesthetic isn&apos;t a theme — it&apos;s a worldview.
-              Dark rooms, monitors glowing, beats in the background.
-            </p>
-          </div>
-        </div>
-
-        <div className="pb-14 sm:pb-18" />
       </section>
 
       {/* ─── SIGNAL ───────────────────────────────────────────── */}
       <section
         id="signal"
-        className="flex flex-col items-center justify-center px-4 py-12 sm:py-16"
+        className="flex flex-col items-center justify-center px-4 pt-12 sm:pt-16 pb-[calc(4.5rem+env(safe-area-inset-bottom))] sm:pb-16"
         style={{ background: "var(--black-deep)", borderTop: "1px solid var(--gray-muted)" }}
       >
-        <p className="text-gray-text text-[10px] tracking-[0.35em] uppercase mb-10 select-none">
+        <p className="text-gray-text text-[10px] tracking-[0.35em] uppercase mb-4 sm:mb-10 select-none">
           SYSTEM IDENTIFICATION
         </p>
 
+        {/* ── Mobile Signal Card (no floppy) ── */}
+        <div
+          className="sm:hidden w-full max-w-[460px] rounded-md border p-4 mt-2"
+          style={{
+            borderColor: "rgba(0,212,255,0.35)",
+            background: "linear-gradient(165deg, rgba(6,11,15,0.85), rgba(6,8,10,0.96))",
+            boxShadow: "0 0 24px rgba(0,212,255,0.12)",
+          }}
+        >
+          <p className="text-cyan-dim text-[9px] tracking-[0.2em] uppercase mb-1">ID_CARD // MOBILE</p>
+          <p className="text-white-dim text-[16px] tracking-[0.1em] uppercase mb-1">Maniraj Sai</p>
+          <p className="text-cyan-subtle text-[9px] tracking-[0.16em] uppercase mb-3">
+            AI Engineer // Schiphol, NL
+          </p>
+
+          <div style={{ height: "1px", background: "rgba(0,212,255,0.2)", marginBottom: "8px" }} />
+
+          {signals.map((signal) => (
+            <a
+              key={signal.cmd}
+              href={signal.href}
+              target={signal.href.startsWith("http") ? "_blank" : undefined}
+              rel={signal.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="group flex items-start justify-between gap-3 py-2"
+              style={{ borderBottom: "1px solid rgba(0,212,255,0.1)", textDecoration: "none" }}
+            >
+              <span className="text-gray-text group-hover:text-cyan-subtle transition-colors text-[8px] tracking-[0.14em] uppercase shrink-0">
+                {signal.cmd}
+              </span>
+              <span
+                className="text-white-dim group-hover:text-cyan-subtle transition-colors text-[11px] text-right min-w-0"
+                style={{ overflowWrap: "anywhere" }}
+              >
+                {signal.label}
+              </span>
+            </a>
+          ))}
+        </div>
+
         {/* ── Floppy Disk ── */}
         <div
-          className="w-full relative"
+          className="hidden sm:block w-full relative"
           style={{
             maxWidth: "460px",
             background: "linear-gradient(160deg, #131313 0%, #0a0a0a 100%)",
@@ -413,8 +481,8 @@ export default async function Home() {
 
           {/* Top row — write-protect notch + hub window */}
           <div
-            className="flex items-start justify-between"
-            style={{ padding: "18px 22px 12px", position: "relative", zIndex: 2 }}
+            className="flex items-start justify-between px-4 sm:px-[22px] pt-4 sm:pt-[18px] pb-2.5 sm:pb-3"
+            style={{ position: "relative", zIndex: 2 }}
           >
             {/* Write-protect tab */}
             <div style={{
@@ -463,18 +531,26 @@ export default async function Home() {
           </div>
 
           {/* Label area */}
-          <div style={{ padding: "0 22px 16px", position: "relative", zIndex: 2 }}>
-            <div style={{
-              background: "rgba(0,212,255,0.04)",
-              border: "1px solid rgba(0,212,255,0.2)",
-              borderRadius: "6px",
-              padding: "14px 16px",
-            }}>
+          <div className="px-4 sm:px-[22px] pb-3.5 sm:pb-4" style={{ position: "relative", zIndex: 2 }}>
+            <div
+              className="p-3 sm:px-4 sm:py-[14px]"
+              style={{
+                background: "rgba(0,212,255,0.04)",
+                border: "1px solid rgba(0,212,255,0.2)",
+                borderRadius: "6px",
+              }}
+            >
               {/* Name + title */}
-              <p style={{ color: "#e8e8e8", fontSize: "16px", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "4px" }}>
+              <p
+                className="text-[14px] sm:text-[16px] tracking-[0.10em] sm:tracking-[0.12em] uppercase mb-1"
+                style={{ color: "#e8e8e8" }}
+              >
                 Maniraj Sai
               </p>
-              <p style={{ color: "var(--cyan-subtle)", fontSize: "9px", letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: "14px", opacity: 0.85 }}>
+              <p
+                className="text-[8px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] uppercase mb-3 sm:mb-[14px]"
+                style={{ color: "var(--cyan-subtle)", opacity: 0.85 }}
+              >
                 AI Engineer // Schiphol, NL
               </p>
 
@@ -487,13 +563,16 @@ export default async function Home() {
                   href={signal.href}
                   target={signal.href.startsWith("http") ? "_blank" : undefined}
                   rel={signal.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center justify-between py-2 transition-colors"
+                  className="group flex items-start sm:items-center justify-between gap-3 py-2 transition-colors"
                   style={{ borderBottom: "1px solid rgba(0,212,255,0.09)", textDecoration: "none" }}
                 >
-                  <span className="text-gray-text group-hover:text-cyan-subtle transition-colors tracking-[0.2em] uppercase" style={{ fontSize: "9px" }}>
+                  <span className="text-gray-text group-hover:text-cyan-subtle transition-colors tracking-[0.16em] uppercase shrink-0 text-[8px] sm:text-[9px]">
                     {signal.cmd}
                   </span>
-                  <span className="text-white-dim group-hover:text-cyan-subtle transition-colors" style={{ fontSize: "12px", letterSpacing: "0.03em" }}>
+                  <span
+                    className="text-white-dim group-hover:text-cyan-subtle transition-colors min-w-0 text-right text-[11px] sm:text-[12px]"
+                    style={{ letterSpacing: "0.02em", overflowWrap: "anywhere" }}
+                  >
                     {signal.label}
                   </span>
                 </a>
@@ -502,8 +581,9 @@ export default async function Home() {
           </div>
 
           {/* Metal shutter */}
-          <div style={{
-            margin: "0 22px 20px",
+          <div
+            className="mx-4 sm:mx-[22px] mb-[calc(16px+env(safe-area-inset-bottom))] sm:mb-5"
+            style={{
             position: "relative", zIndex: 2,
             background: "linear-gradient(180deg, #222 0%, #2a2a2a 40%, #1e1e1e 100%)",
             borderRadius: "4px",
@@ -513,7 +593,8 @@ export default async function Home() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-          }}>
+          }}
+          >
             {/* Read/write opening slot */}
             <div style={{
               flex: 1,

@@ -5,7 +5,10 @@ export default async function BlogPage() {
   const posts = await getAllPostsMeta()
 
   return (
-    <main style={{ minHeight: "100dvh", background: "var(--black-deep)" }} className="px-4 sm:px-8 py-10 sm:py-14">
+    <main
+      style={{ minHeight: "100dvh", background: "var(--black-deep)" }}
+      className="px-4 sm:px-8 pt-10 sm:pt-14 pb-[calc(2.4rem+env(safe-area-inset-bottom))] sm:pb-14"
+    >
       <div className="mx-auto max-w-[980px]">
         <p className="text-gray-text text-[10px] tracking-[0.3em] uppercase mb-2">
           TRANSMISSION INDEX
@@ -24,10 +27,12 @@ export default async function BlogPage() {
             >
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <p className="text-cyan-dim text-[10px] tracking-[0.18em] uppercase">[{post.date}]</p>
-                <p className="text-[10px] text-cyan-subtle tracking-widest uppercase">{post.tags.join(" // ")}</p>
+                <p className="text-[10px] text-cyan-subtle tracking-[0.12em] sm:tracking-widest uppercase break-words">
+                  {post.tags.join(" // ")}
+                </p>
               </div>
               <p className="text-white-dim text-[14px] sm:text-[15px] mt-1">{post.title}</p>
-              <p className="text-gray-text text-[12px] mt-1">{post.excerpt}</p>
+              <p className="text-gray-text text-[12px] mt-1 leading-relaxed">{post.excerpt}</p>
             </Link>
           ))}
         </div>
@@ -35,4 +40,3 @@ export default async function BlogPage() {
     </main>
   )
 }
-
