@@ -12,6 +12,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "SAI — AI Engineer",
   description: "AI Engineer. LLM builder. Football obsessive.",
+  icons: {
+    icon: "/favicon.ico?v=20260416",
+    shortcut: "/favicon.ico?v=20260416",
+    apple: "/favicon.ico?v=20260416",
+  },
   openGraph: {
     title: "SAI — AI Engineer",
     description: "AI Engineer. LLM builder. Football obsessive.",
