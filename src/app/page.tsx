@@ -279,75 +279,8 @@ export default async function Home() {
             Hobbies
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-            <article
-              className="hidden lg:block lg:col-span-7 relative rounded-xl border p-5 sm:p-6 overflow-hidden"
-              style={{
-                borderColor: "rgba(0,212,255,0.28)",
-                background: "linear-gradient(160deg, rgba(7,12,16,0.88) 0%, rgba(6,8,10,0.96) 100%)",
-              }}
-            >
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  pointerEvents: "none",
-                  background: "radial-gradient(ellipse 60% 80% at 20% 35%, rgba(0,212,255,0.18), transparent 72%)",
-                }}
-              />
-
-              <div className="relative z-10">
-                <p className="text-cyan-dim text-[10px] tracking-[0.18em] uppercase mb-3">
-                  RECOVERY CYCLE // BASE MODE
-                </p>
-                <h3 className="text-white-dim text-[22px] sm:text-[28px] tracking-[0.06em] uppercase leading-tight mb-4">
-                  Focus Engine Outside Work
-                </h3>
-                <p className="text-gray-text text-[13px] sm:text-[14px] leading-relaxed max-w-[50ch]">
-                  Football sharpens pattern reading, tinkering sharpens execution, and lofi/anime
-                  resets the system so deep work stays consistent.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-5">
-                  <div
-                    className="rounded-md border px-3 py-2"
-                    style={{ borderColor: "rgba(0,255,65,0.28)", background: "rgba(0,255,65,0.04)" }}
-                  >
-                    <p className="text-[9px] tracking-[0.18em] uppercase text-green-dim mb-1">PATTERN</p>
-                    <p className="text-[14px] text-green-neon">Football</p>
-                  </div>
-                  <div
-                    className="rounded-md border px-3 py-2"
-                    style={{ borderColor: "rgba(0,212,255,0.28)", background: "rgba(0,212,255,0.04)" }}
-                  >
-                    <p className="text-[9px] tracking-[0.18em] uppercase text-cyan-dim mb-1">BUILD</p>
-                    <p className="text-[14px] text-cyan-subtle">Tinkering</p>
-                  </div>
-                  <div
-                    className="rounded-md border px-3 py-2"
-                    style={{ borderColor: "rgba(255,179,71,0.28)", background: "rgba(255,179,71,0.04)" }}
-                  >
-                    <p className="text-[9px] tracking-[0.18em] uppercase text-amber-dim mb-1">RECOVER</p>
-                    <p className="text-[14px] text-amber-warm">Lofi + Anime</p>
-                  </div>
-                </div>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {["Match Vision", "Notebook Experiments", "Late-Night Focus", "Repeat Loop"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 rounded-full border text-[10px] tracking-[0.14em] uppercase text-gray-text"
-                      style={{ borderColor: "rgba(0,212,255,0.2)", background: "rgba(0,0,0,0.28)" }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </article>
-
-            <div className="lg:col-span-5 grid grid-cols-1 gap-4">
+          <div className="mx-auto max-w-[1120px] grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:contents">
               <article
                 className="rounded-xl border p-5"
                 style={{

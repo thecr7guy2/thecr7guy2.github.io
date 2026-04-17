@@ -10,7 +10,7 @@ const LINKS = [
 ]
 
 const METRICS = [
-  { label: "exp", value: "4+ years" },
+  { label: "exp", value: "3+ years" },
   { label: "role", value: "AI Engineer" },
   { label: "focus", value: "LLM's" },
 ]
@@ -18,7 +18,7 @@ const METRICS = [
 const FOCUS = [
   "agentic systems + evaluation frameworks",
   "on-prem LLM deployments for sensitive data",
-  "football + ML experiments",
+  "latency budgets + reliability guardrails",
 ]
 
 export function MainMonitor() {
@@ -54,10 +54,10 @@ export function MainMonitor() {
 
           <p className="hidden sm:block text-white-dim text-[14px] sm:text-[15px] tracking-wide leading-relaxed max-w-[44ch]">
             AI Engineer building production LLM systems, training workflows, and data products
-            with a football-heavy creative edge.
+            with just enough chaos in staging so production sleeps peacefully.
           </p>
           <p className="sm:hidden text-white-dim text-[12px] tracking-[0.02em] leading-relaxed max-w-[30ch]">
-            AI Engineer building production LLM systems.
+            AI Engineer building production LLM systems (and reading logs at 2am).
           </p>
 
           <p className="text-green-dim text-[9px] sm:text-[11px] tracking-[0.08em] sm:tracking-wider">
