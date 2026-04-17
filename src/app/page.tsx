@@ -279,53 +279,51 @@ export default async function Home() {
             Hobbies
           </h2>
 
-          <div className="mx-auto max-w-[1120px] grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="grid grid-cols-1 gap-4 md:contents">
-              <article
-                className="rounded-xl border p-5"
-                style={{
-                  borderColor: "rgba(0,255,65,0.28)",
-                  background: "linear-gradient(155deg, rgba(8,14,9,0.85) 0%, rgba(7,10,7,0.95) 100%)",
-                }}
-              >
-                <h4 className="text-green-neon text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-green mb-2">
-                  Football
-                </h4>
-                <p className="text-gray-text text-[13px] leading-relaxed">
-                  Shot mechanics, space timing, and pattern intuition.
-                </p>
-              </article>
+          <div className="mx-auto max-w-[620px] grid grid-cols-1 gap-4">
+            <article
+              className="rounded-xl border p-5"
+              style={{
+                borderColor: "rgba(0,255,65,0.28)",
+                background: "linear-gradient(155deg, rgba(8,14,9,0.85) 0%, rgba(7,10,7,0.95) 100%)",
+              }}
+            >
+              <h4 className="text-green-neon text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-green mb-2">
+                Football
+              </h4>
+              <p className="text-gray-text text-[13px] leading-relaxed">
+                Shot mechanics, space timing, and pattern intuition.
+              </p>
+            </article>
 
-              <article
-                className="rounded-xl border p-5"
-                style={{
-                  borderColor: "rgba(0,212,255,0.28)",
-                  background: "linear-gradient(155deg, rgba(5,13,16,0.85) 0%, rgba(6,8,10,0.95) 100%)",
-                }}
-              >
-                <h4 className="text-cyan-subtle text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-cyan mb-2">
-                  Tinkering
-                </h4>
-                <p className="text-gray-text text-[13px] leading-relaxed">
-                  Small model runs, wild tests, and fast break-fix loops.
-                </p>
-              </article>
+            <article
+              className="rounded-xl border p-5"
+              style={{
+                borderColor: "rgba(0,212,255,0.28)",
+                background: "linear-gradient(155deg, rgba(5,13,16,0.85) 0%, rgba(6,8,10,0.95) 100%)",
+              }}
+            >
+              <h4 className="text-cyan-subtle text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-cyan mb-2">
+                Tinkering
+              </h4>
+              <p className="text-gray-text text-[13px] leading-relaxed">
+                Small model runs, wild tests, and fast break-fix loops.
+              </p>
+            </article>
 
-              <article
-                className="rounded-xl border p-5"
-                style={{
-                  borderColor: "rgba(255,179,71,0.28)",
-                  background: "linear-gradient(155deg, rgba(16,11,6,0.84) 0%, rgba(10,8,6,0.95) 100%)",
-                }}
-              >
-                <h4 className="text-amber-warm text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-amber mb-2">
-                  Lofi + Anime
-                </h4>
-                <p className="text-gray-text text-[13px] leading-relaxed">
-                  Quiet ambience, glowing rooms, stable attention.
-                </p>
-              </article>
-            </div>
+            <article
+              className="rounded-xl border p-5"
+              style={{
+                borderColor: "rgba(255,179,71,0.28)",
+                background: "linear-gradient(155deg, rgba(16,11,6,0.84) 0%, rgba(10,8,6,0.95) 100%)",
+              }}
+            >
+              <h4 className="text-amber-warm text-[28px] sm:text-[34px] leading-none tracking-[0.06em] uppercase text-glow-amber mb-2">
+                Lofi + Anime
+              </h4>
+              <p className="text-gray-text text-[13px] leading-relaxed">
+                Quiet ambience, glowing rooms, stable attention.
+              </p>
+            </article>
           </div>
         </div>
       </section>
